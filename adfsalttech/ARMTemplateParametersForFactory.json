@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfsalttech"
+		},
+		"adls_ll_genric_accountKey": {
+			"value": ""
+		},
+		"sql_database_genric_password": {
+			"value": ""
+		},
+		"adls_ll_genric_properties_typeProperties_url": {
+			"value": "https://sasalttech.dfs.core.windows.net/"
+		},
+		"sql_database_genric_properties_typeProperties_server": {
+			"value": "server-salttech.database.windows.net"
+		},
+		"sql_database_genric_properties_typeProperties_database": {
+			"value": "salttech"
+		},
+		"sql_database_genric_properties_typeProperties_userName": {
+			"value": "euroadmin"
+		}
+	}
+}

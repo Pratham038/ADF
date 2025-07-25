@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfsalttech"
+		},
+		"adls_ll_genric_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adls_ll_genric'"
+		},
+		"sql_database_genric_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'sql_database_genric'"
+		},
+		"adls_ll_genric_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sasalttech.dfs.core.windows.net/"
+		},
+		"sql_database_genric_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "server-salttech.database.windows.net"
+		},
+		"sql_database_genric_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "salttech"
+		},
+		"sql_database_genric_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "euroadmin"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfsalttech_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"adls_ll_genric_accountKey": {
+						"value": "[parameters('adls_ll_genric_accountKey')]"
+					},
+					"sql_database_genric_password": {
+						"value": "[parameters('sql_database_genric_password')]"
+					},
+					"adls_ll_genric_properties_typeProperties_url": {
+						"value": "[parameters('adls_ll_genric_properties_typeProperties_url')]"
+					},
+					"sql_database_genric_properties_typeProperties_server": {
+						"value": "[parameters('sql_database_genric_properties_typeProperties_server')]"
+					},
+					"sql_database_genric_properties_typeProperties_database": {
+						"value": "[parameters('sql_database_genric_properties_typeProperties_database')]"
+					},
+					"sql_database_genric_properties_typeProperties_userName": {
+						"value": "[parameters('sql_database_genric_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
