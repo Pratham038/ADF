@@ -1,0 +1,9 @@
+{
+	"name": "adfsalttech",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fba297a5-68c4-4d65-8bb2-f0289999d7e1",
+		"tenantId": "787bb4bd-902d-4ff3-a647-9f9488881613"
+	}
+}

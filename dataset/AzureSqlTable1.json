@@ -1,0 +1,41 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sql_database_genric",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"schemaName": {
+					"value": "@dataset().schemaNameParam",
+					"type": "Expression"
+				},
+				"tableName": {
+					"value": "@dataset().tableNameParam",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"schemaNameParam": {
+				"type": "string"
+			},
+			"tableNameParam": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schemaNameParam",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tableNameParam",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
